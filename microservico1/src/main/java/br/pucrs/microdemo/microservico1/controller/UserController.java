@@ -10,7 +10,7 @@ public class UserController {
 
     @GetMapping("/user")
     public User getUser(@RequestParam("fn") String firstName, @RequestParam("ln") String lastName) {
-        System.out.println("microservico1: " + firstName + " " + lastName);
+        // System.out.println("microservico1: " + firstName + " " + lastName);
         return new User(firstName + firstName, lastName + lastName);
     }
 }

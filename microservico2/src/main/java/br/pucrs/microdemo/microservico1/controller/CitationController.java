@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.pucrs.microdemo.microservico1.business.CitationCollection;
 
+import br.pucrs.microdemo.commons.ClasseComumEntidade;
+
 @RestController
 public class CitationController {
     @Autowired
