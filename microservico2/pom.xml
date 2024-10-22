@@ -46,6 +46,13 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>br.pucrs.microdemo</groupId>
+			<artifactId>commons</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/../commons/target/commons-1.0.jar</systemPath>
+		</dependency>
 	</dependencies>
 
 	<build>

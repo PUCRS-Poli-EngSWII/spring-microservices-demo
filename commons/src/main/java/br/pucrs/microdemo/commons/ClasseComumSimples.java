@@ -5,10 +5,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Setters
-@Getters
-@AlllArgsConstructor
-@NoArgsConstructors
+@Setter
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
 public class ClasseComumSimples {
     private String texto;
 }
