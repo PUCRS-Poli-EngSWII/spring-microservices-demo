@@ -10,5 +10,6 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ClasseComumSimples {
+    //comentário para disparar github actions
     private String texto;
 }
