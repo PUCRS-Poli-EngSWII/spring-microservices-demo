@@ -1,14 +1,20 @@
 package br.pucrs.microdemo.microservico2;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+
+import br.pucrs.microdemo.microservico2.business.CitationCollection;
 
 // @SpringBootTest
 
 class Microservico2ApplicationTests {
 
 	@Test
-	void contextLoads() {
+	void citationCollectionTest() {
+		CitationCollection cc = new CitationCollection();
+		
+		assertNotNull(cc.getCitation());
 	}
 
 }

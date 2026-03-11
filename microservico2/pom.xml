@@ -16,9 +16,16 @@
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>17</java.version> 
-		<sonar.projectName>Microservice2</sonar.projectName>
-		<sonar.host.url>http://localhost:9000</sonar.host.url>
-		<sonar.login>squ_af24ce3cf44aa507c10c0c3a8326c708f2db623c</sonar.login> 
+		<maven.plugin.validation>VERBOSE</maven.plugin.validation>
+		<!-- Propriedades do SonarQube -->
+		<sonar.organization>sua-organizacao</sonar.organization>
+    	<sonar.host.url>http://localhost:9000</sonar.host.url>
+    	<sonar.token>sqp_8a7d1842670dc333a04a411f182a9de7432b9d42</sonar.token>
+    	<sonar.projectKey>Microservice2</sonar.projectKey>
+    	<sonar.projectName>Microservio Demo</sonar.projectName>
+    	<!-- <sonar.sources>.</sonar.sources>
+    	<sonar.java.coverage.reportPaths>${project.build.directory}/jacoco/jacoco.exec</sonar.java.coverage.reportPaths> -->
+
 	</properties>
 	<dependencies>
 		<dependency>
@@ -74,7 +81,7 @@
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>0.8.8</version>
+				<version>0.8.12</version>
 				<executions>
 					<execution>
 						<goals>
@@ -93,7 +100,7 @@
 			<plugin>
 				<groupId>org.sonarsource.scanner.maven</groupId>
 				<artifactId>sonar-maven-plugin</artifactId>
-				<version>3.9.1.2184</version>
+				<version>5.2.0.4988</version>
 			</plugin>
 		</plugins>
 	</build>
