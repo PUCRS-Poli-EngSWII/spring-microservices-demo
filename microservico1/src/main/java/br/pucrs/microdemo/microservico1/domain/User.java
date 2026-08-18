@@ -1,9 +1,10 @@
 package br.pucrs.microdemo.microservico1.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,32 +17,20 @@ import lombok.ToString;
 @Setter
 @Entity
 @ToString
-@Table(name="USERS")
+@Table(name="STUDENTS")
 public class User {
     @Id
     @GeneratedValue
     private Long id;
-    private String firstName;
-    private String lastName;
-
-    public User(String firstName, String lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
     
-    public String getFirstName() {
-        return firstName;
-    }
+    @Column(nullable = false)
+    private String nome;
+    
+    @Column(nullable = false, unique = true)
+    private String nroMatricula;
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public User(String nome, String nroMatricula) {
+        this.nome = nome;
+        this.nroMatricula = nroMatricula;
     }
 }
