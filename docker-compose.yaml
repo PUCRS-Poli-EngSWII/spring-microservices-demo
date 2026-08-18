@@ -7,23 +7,48 @@ services:
       POSTGRES_DB: postgres  
     ports:
       - 5432:5432
-  doiscontainers-1:
+  
+  student-service:
     depends_on:
         banco:
           condition: service_started
     build:
       context: ./microservico1
-      dockerfile: Dockerfile
-      tags: ["microservicedemo", "doiscontainers-1"]
+      dockerfile: dockerfile
+      tags: ["microservicedemo:student-service"]
     ports:
-      - 443:443
-  doiscontainers-2:
+      - 8080:8080
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://banco:5432/postgres
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: mysecretpassword
+  
+  course-service:
     depends_on:
         banco:
           condition: service_started
     build:
       context: ./microservico2
-      dockerfile: Dockerfile
-      tags: ["microservicedemo", "doiscontainers-2"]
+      dockerfile: dockerfile
+      tags: ["microservicedemo:course-service"]
     ports:
-      - 444:443
+      - 8081:8081
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://banco:5432/postgres
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: mysecretpassword
+  
+  enrollment-service:
+    depends_on:
+        banco:
+          condition: service_started
+    build:
+      context: ./microservico3
+      dockerfile: dockerfile
+      tags: ["microservicedemo:enrollment-service"]
+    ports:
+      - 8082:8082
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://banco:5432/postgres
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: mysecretpassword

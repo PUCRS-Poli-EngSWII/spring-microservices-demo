@@ -1,0 +1,41 @@
+FROM maven:3.8.8-eclipse-temurin-11 AS builder
+
+WORKDIR /build
+
+# Copiar commons
+COPY commons ./commons
+RUN cd commons && mvn clean install -DskipTests
+
+# Copiar microserviços
+COPY microservico1 ./microservico1
+RUN cd microservico1 && mvn clean install -DskipTests -o
+
+COPY microservico2 ./microservico2
+RUN cd microservico2 && mvn clean install -DskipTests -o
+
+COPY microservico3 ./microservico3
+RUN cd microservico3 && mvn clean install -DskipTests -o
+
+# Stage para Student Service
+FROM maven:3.8.8-eclipse-temurin-11 as student-builder
+WORKDIR /build
+COPY --from=builder /root/.m2 /root/.m2
+COPY commons ./commons
+COPY microservico1 ./microservico1
+RUN cd microservico1 && mvn clean package -DskipTests
+
+# Stage para Course Service  
+FROM maven:3.8.8-eclipse-temurin-11 as course-builder
+WORKDIR /build
+COPY --from=builder /root/.m2 /root/.m2
+COPY commons ./commons
+COPY microservico2 ./microservico2
+RUN cd microservico2 && mvn clean package -DskipTests
+
+# Stage para Enrollment Service
+FROM maven:3.8.8-eclipse-temurin-11 as enrollment-builder
+WORKDIR /build
+COPY --from=builder /root/.m2 /root/.m2
+COPY commons ./commons
+COPY microservico3 ./microservico3
+RUN cd microservico3 && mvn clean package -DskipTests
