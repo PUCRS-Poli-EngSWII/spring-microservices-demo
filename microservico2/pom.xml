@@ -15,7 +15,8 @@
 	<name>microservico2</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
-		<java.version>11</java.version> 
+		<java.version>11</java.version>
+		<lombok.version>1.18.46</lombok.version>
 		<maven.plugin.validation>VERBOSE</maven.plugin.validation>
 		<!-- Propriedades do SonarQube -->
 		<sonar.organization>sua-organizacao</sonar.organization>

@@ -15,6 +15,7 @@
 	<description>Enrollment Service for Spring Microservices Demo</description>
 	<properties>
 		<java.version>11</java.version>
+		<lombok.version>1.18.46</lombok.version>
 	</properties>
 	<dependencies>
 

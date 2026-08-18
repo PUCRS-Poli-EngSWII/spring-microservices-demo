@@ -1,7 +1,7 @@
 #!/bin/bash
 # Build script para compilar todos os microserviços
 
-cd /workspaces/spring-microservices-demo
+cd "$(dirname "$0")"
 
 # Compilar commons
 echo "=== Compilando commons ==="
